@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✈️ Flight Booking App
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This Flight Booking App is a web application built with **Next.js**,
+**React**, and **Tailwind CSS** that allows users to search, view, and
+book flights.\
+It integrates backend APIs for flight search, selection, and booking
+creation, and stores intermediate data in local storage to manage
+navigation between pages.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The goal of this project is to demonstrate a full booking flow --- from
+searching flights to confirming a reservation --- with a clean UI and
+simple state management.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+------------------------------------------------------------------------
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔍 Flight Search
 
-## Learn More
+-   Enter source and destination cities
+-   Select departure date
+-   Choose travellers (Adult / Child / Infant)
+-   Filter by:
+    -   Price range
+    -   Stops
+    -   Departure time range
+-   Stores search results locally for navigation
 
-To learn more about Next.js, take a look at the following resources:
+### 📋 Results Display
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   Shows list of available flights
+-   Displays:
+    -   Airline & flight number
+    -   Departure & arrival time
+    -   Duration & stops
+    -   Origin & destination airports
+    -   Total price
+-   Allows selecting a flight
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🧍 Traveller Booking Form
 
-## Deploy on Vercel
+-   Collects traveller details:
+    -   Name
+    -   Email
+    -   Phone
+    -   Gender
+    -   Date of birth
+    -   Passport number
+-   Sends data to backend booking API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ✅ Confirmation Popup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   Displays confirmation message
+-   Shows Booking ID
+-   Tailwind modal popup UI
+
+------------------------------------------------------------------------
+
+## 🛠 Tech Stack
+
+### Frontend
+
+-   Next.js (App Router)
+-   React
+-   Tailwind CSS v4
+-   Framer Motion (animations)
+
+### Backend Communication
+
+-   Custom API functions:
+    -   `searchFlights()`
+    -   `selectFlight()`
+    -   `createBooking()`
+
+### Storage
+
+-   Browser LocalStorage for:
+    -   Search results
+    -   Selected flight reference
+
+------------------------------------------------------------------------
+
+## 📁 Project Structure (Simplified)
+
+    app/
+     ├─ page.tsx              # Search page
+     ├─ results/              # Flight results UI
+     ├─ booking/              # Traveller form
+     ├─ confirmPage/          # Confirmation popup page
+
+    components/
+     ├─ SearchForm.tsx
+     ├─ FlightCard.tsx
+     ├─ TravellerForm.tsx
+
+    lib/
+     ├─ api.ts                # API calls
+
+------------------------------------------------------------------------
+
+## 🔄 User Flow
+
+1️⃣ User searches flights\
+2️⃣ Results page lists available flights\
+3️⃣ User selects flight\
+4️⃣ Traveller fills booking form\
+5️⃣ Booking API called\
+6️⃣ Confirmation popup displayed
+
+------------------------------------------------------------------------
+
+## 🧪 Future Improvements
+
+-   Authentication
+-   Multi-passenger support
+-   Seat selection
+-   Payment gateway integration
+-   Server-side validation
+-   Real-time flight updates
+
+------------------------------------------------------------------------
+
+## 📌 Notes
+
+This project is intended for learning/demo purposes and focuses
+primarily on UI flow and API integration rather than production-grade
+booking infrastructure.
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+@sk md abdul bari
+Flight Booking App --- Built for practice and demonstration of modern
+full-stack web development using Next.js ecosystem.
