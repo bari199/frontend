@@ -1,65 +1,119 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Button } from "@radix-ui/themes";
+import SearchForm from "../components/SearchForm";
+
+export default function HomePage() {
+  const router = useRouter();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+   <div className="">
+      {/* Hero Section */}
+      <section className="bg-[url('https://images.unsplash.com/photo-1659458449830-211efc4cf97f?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-no-repeat min-h-[84vh] text-white py-8 md:py-16 rounded-xl">
+        <div className="max-w-6xl px-4 mx-auto text-center tracking-wide">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8">
+            Book Your Next Flight
+          </h2>
+          <p className="mb-8">
+            Find the best deals on flights to your favorite destinations.
+          </p> 
+          <div className="bg-linear-to-tr from-sky-50 to-white rounded-lg border">
+            {/* <FlightSearch onFlightsFound={handleFlightsFound} /> */}
+           <SearchForm/>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+       {/* Features Section */}
+      <section className="py-16">
+        <div className="max-w-6xl px-4 mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">Why Choose Us?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-sky-50 border p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">Best Prices</h3>
+              <p>We offer competitive prices for all destinations worldwide.</p>
+            </div>
+            <div className="bg-sky-50 border p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">24/7 Support</h3>
+              <p>
+                Our team is here to help you with any questions at any time.
+              </p>
+            </div>
+            <div className="bg-sky-50 border p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">Easy Booking</h3>
+              <p>
+                Book flights quickly and easily with our user-friendly platform.
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      
+      {/* Call to Action Section */}
+      <section className="bg-[url('https://plus.unsplash.com/premium_photo-1682091907070-4985a6fbe6d2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-no-repeat bg-cover text-white rounded-xl">
+        <div className="max-w-6xl px-4 mx-auto py-16 text-center bg-linear-to-r from-transparent via-black/50 to-transparent">
+          <h2 className="text-3xl font-bold mb-4 tracking-wider">
+            Ready to Book Your Flight?
+          </h2>
+          <p className="mb-8">Sign up now and get access to exclusive deals!</p>
+          <Button
+
+            onClick={() => router.push("/register")}
+            className="bg-sky-600 hover:bg-sky-700"
+          >
+            Get Started
+          </Button>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16">
+        <div className="max-w-6xl px-4 mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">What Our Customers Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-sky-50 border p-6 rounded-lg">
+              <p className="mb-4">
+                &quot;This platform made booking my flight so easy and
+                stress-free!&quot;
+              </p>
+              <div className="flex items-center justify-center gap-2">
+                <Image
+                  src="https://i.pravatar.cc/150?img=3"
+                  alt="User"
+                  width={32}
+                  height={32}
+                  className="rounded-full bg-white w-8 h-8 object-cover"
+                />
+                <p className="font-semibold">- John Doe</p>
+              </div>
+            </div>
+            <div className="bg-sky-50 border p-6 rounded-lg">
+              <p className="mb-4">
+                &quot;I found the best deal on my flight thanks to this
+                site!&quot;
+              </p>
+              <div className="flex items-center justify-center gap-2">
+                <Image
+                  src="https://i.pravatar.cc/150?img=5"
+                  alt="User"
+                  width={32}
+                  height={32}
+                  className="rounded-full bg-white w-8 h-8 object-cover"
+                />
+                <p className="font-semibold">- Jane Smith</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
     </div>
   );
 }
